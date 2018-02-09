@@ -7,10 +7,12 @@ public class SurveillanceCamera : MonoBehaviour {
     private IEnumerator coroutine;
 
     float tmpTime = 0;
+    Vector3 prevPosition;
 
     // Use this for initialization
     void Start () {
 		id = System.Guid.NewGuid ().ToString("N");
+        prevPosition = Vector3.zero;
 	}
 	
 	// Update is called once per frame
@@ -21,8 +23,10 @@ public class SurveillanceCamera : MonoBehaviour {
     IEnumerator StartTracking(string id, UserController user)
     {
         while (true) {
+            
             // Debug.Log(Time.realtimeSinceStartup - tmpTime);
-            user.trackUser(id);
+            if(prevPosition != user.gameObject.transform.position) user.trackUser(id);
+            prevPosition = user.gameObject.transform.position;
             tmpTime = Time.realtimeSinceStartup;
             yield return new WaitForSeconds(0.1f);
         }
