@@ -19,12 +19,7 @@ public class UserController : MonoBehaviour {
 
     public float speed = 5f;
 
-    //public float nextWaypointDistance = 0.8f;
-
     private int currentWaypoint = 0;
-
-    //public float repathRate = 1000f;
-    // private float lastRepath = float.NegativeInfinity;
 
     float timer = 0.0f;
     float delayCounter = 0;
@@ -137,33 +132,3 @@ public class UserController : MonoBehaviour {
         return trackersList[probArr.IndexOf(sortedProbArr[i-1])].transform.position;
     }
 }
-
-/*
-void Move() {
-       if (path == null) return;
-       if (currentWaypoint > path.vectorPath.Count) return;
-
-       if (currentWaypoint == path.vectorPath.Count)
-       {
-           currentWaypoint++;
-           StopCoroutine(coroutine);
-           Debug.Log(path.GetTotalLength() / timer);
-           if(targetPosition.position != new Vector3(16f, 0.0f, -15f))
-           {
-               targetPosition.position = new Vector3(16f, 0.0f, -15f);
-           }
-           else
-           {
-               targetPosition.position = new Vector3(0f, 0f, -12f);
-           }
-           seeker.StartPath(transform.position, targetPosition.position, OnPathComplete);
-           return;
-       }
-
-       transform.position = new Vector3(path.vectorPath[currentWaypoint].x, transform.position.y, path.vectorPath[currentWaypoint].z) ;
-       delayCounter += (tmpTime - stepTime);
-       tmpTime = 0;
-       currentWaypoint++;
-   }
-   
-    */
