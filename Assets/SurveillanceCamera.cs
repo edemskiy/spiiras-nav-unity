@@ -23,8 +23,6 @@ public class SurveillanceCamera : MonoBehaviour {
     IEnumerator StartTracking(string id, UserController user)
     {
         while (true) {
-            
-            // Debug.Log(Time.realtimeSinceStartup - tmpTime);
             if(prevPosition != user.gameObject.transform.position) user.trackUser(id);
             prevPosition = user.gameObject.transform.position;
             tmpTime = Time.realtimeSinceStartup;
@@ -34,7 +32,6 @@ public class SurveillanceCamera : MonoBehaviour {
 
     void OnTriggerEnter (Collider col) {
         if (col.gameObject.GetComponent<UserController> () != null) {
-            
             coroutine = StartTracking(id, col.gameObject.GetComponent<UserController>());
             StartCoroutine(coroutine);
 		}
@@ -42,7 +39,6 @@ public class SurveillanceCamera : MonoBehaviour {
 
 	void OnTriggerExit (Collider col) {
         if (col.gameObject.GetComponent<UserController> () != null) {
-            
             StopCoroutine(coroutine);
         }
 	}
