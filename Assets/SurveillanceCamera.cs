@@ -20,7 +20,7 @@ public class SurveillanceCamera : MonoBehaviour {
 		
 	}
 
-    IEnumerator StartTracking(string id, UserController user)
+    IEnumerator StartTracking(string id, NavMeshController user)
     {
         while (true) {
             if(prevPosition != user.gameObject.transform.position) user.trackUser(id);
@@ -31,14 +31,14 @@ public class SurveillanceCamera : MonoBehaviour {
     }
 
     void OnTriggerEnter (Collider col) {
-        if (col.gameObject.GetComponent<UserController> () != null) {
-            coroutine = StartTracking(id, col.gameObject.GetComponent<UserController>());
+        if (col.gameObject.GetComponent<NavMeshController> () != null) {
+            coroutine = StartTracking(id, col.gameObject.GetComponent<NavMeshController>());
             StartCoroutine(coroutine);
 		}
 	}
 
 	void OnTriggerExit (Collider col) {
-        if (col.gameObject.GetComponent<UserController> () != null) {
+        if (col.gameObject.GetComponent<NavMeshController> () != null) {
             StopCoroutine(coroutine);
         }
 	}
