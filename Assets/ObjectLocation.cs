@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class ObjectLocation {
 
     public string time;
@@ -10,8 +9,8 @@ public class ObjectLocation {
     public string userID;
 
     public ObjectLocation(string time, float x, float z, string userID) {
-        this.x = x;
-        this.z = z;
+        this.x = (float) System.Math.Round((double)x, 2);
+        this.z = (float) System.Math.Round((double)z, 2);
         this.time = time;
         this.userID = userID;
     }
