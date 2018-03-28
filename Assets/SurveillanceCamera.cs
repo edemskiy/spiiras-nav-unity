@@ -46,7 +46,12 @@ public class SurveillanceCamera : MonoBehaviour {
 	void OnTriggerExit (Collider col) {
         if (col.gameObject.GetComponent<UserController> () != null) {
             users.Remove(col.gameObject.GetComponent<UserController>());
-            if(users.Count == 0) StopCoroutine(coroutine);
+            if (users.Count == 0)
+            {
+                StopCoroutine(coroutine);
+                coroutine = null;
+            }
+
         }
 	}
 }

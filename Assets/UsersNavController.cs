@@ -15,7 +15,7 @@ public class UsersNavController : MonoBehaviour {
         };
 
         UserController[] users = GetComponentsInChildren<UserController>();
-        for(int i = 0; i <= users.Length; i++)
+        for(int i = 0; i < users.Length; i++)
         {
             users[i].SetProbArr(ProbArrs[i]);
         }

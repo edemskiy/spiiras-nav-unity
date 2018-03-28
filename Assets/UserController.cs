@@ -106,7 +106,8 @@ public class UserController : MonoBehaviour {
         if (startDate.DayOfWeek == System.DayOfWeek.Sunday || startDate.DayOfWeek == System.DayOfWeek.Saturday) return;
         if (startDate.Hour > 18 || startDate.Hour < 10) return;
 
-        System.IO.FileInfo fi = new System.IO.FileInfo("data/userTracking" + id + ".txt");
+        // System.IO.FileInfo fi = new System.IO.FileInfo("data/userTracking" + id + ".txt");
+        System.IO.FileInfo fi = new System.IO.FileInfo("data/userTracking.txt");
         prevPosition = transform.position;
         ObjectLocation loc = new ObjectLocation(startDate.ToString(), transform.position.x, transform.position.z, this.id);
 
